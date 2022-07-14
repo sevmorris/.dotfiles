@@ -105,6 +105,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
 alias wd="workdrive"
 alias bu="backup"
+alias s="pmset displaysleepnow"
 
 # Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
