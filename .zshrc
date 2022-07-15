@@ -100,12 +100,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias c="clear && source ~/.zshrc"
-alias path='echo -e ${PATH//:/\\n}'
-alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
-alias wd="workdrive"
+#___BEGIN SEV'S ALIASES________________________________________________________#
+
+alias audit="lynis audit system"
 alias bu="backup"
+alias c="clear && source ~/.zshrc"
+alias cat="rich "
+alias brewfile="nano ~/homebrew-brewfile/Brewfile"
+alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
+alias brun="brew uninstall -v "
+alias dots="cd ~/.dotfiles && at && cd ~/"
+alias find="fd "
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+alias mount="mount | column -t"
+alias path='echo -e ${PATH//:/\\n}'
+alias pi="ssh pi"
 alias s="pmset displaysleepnow"
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias wd="workdrive"
+
+
 
 # Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
