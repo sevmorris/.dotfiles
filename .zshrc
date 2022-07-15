@@ -102,56 +102,17 @@ source $ZSH/oh-my-zsh.sh
 
 #___BEGIN SEV'S ALIASES________________________________________________________#
 
-alias audit="lynis audit system"
-alias bu="backup"
 alias c="clear && source ~/.zshrc"
 alias cat="rich "
-alias brewfile="nano ~/homebrew-brewfile/Brewfile"
 alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
 alias brun="brew uninstall -v "
-alias dots="cd ~/.dotfiles && at && cd ~/"
 alias find="fd "
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias mount="mount | column -t"
 alias path='echo -e ${PATH//:/\\n}'
-alias pi="ssh pi"
 alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
-alias wd="workdrive"
 
-
-
-# Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
-PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
-
-#___BEGIN FUNCTIONS____________________________________________________________#
-
-# Push current directory to Github
-pushit() {
-  DATE=$(date '+%y%m%d-%H%M')
-  git pull 2>&1
-  git add . 2>&1
-  git commit -m "${DATE}" 2>&1
-  git push 2>&1
-}
-
-# Just a bold yellow arrow
-arrow() {
-  echo "${yellow}${bold}>>> ${reset}$*"
-}
-
-# Open the current directory in Atom
-at() {
-  if [ $# -eq 0 ]; then
-      atom .;
-  else
-      atom "$@";
-  fi;
-}
-
-CP() {
-  mkdir -p $(dirname "$2") && cp "$1" "$2"
-}
 
 # tre :: `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
@@ -174,3 +135,6 @@ fs() {
       du $arg .[^.]* *;
   fi;
 }
+
+# Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
+PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"

@@ -11,16 +11,11 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/
 case `arch` in
     arm64) # M1
         export BREW_PREFIX=/opt/homebrew
-
     ;;
     i386) # Intel
         export BREW_PREFIX=/usr/local
     ;;
 esac
-
 export PATH="$BREW_PREFIX/bin:$PATH"
-
-
-
 
 neofetch
