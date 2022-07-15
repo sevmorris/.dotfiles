@@ -113,7 +113,7 @@ PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH})
 #___BEGIN FUNCTIONS____________________________________________________________#
 
 # Push current directory to Github
-function pushit() {
+pushit() {
   DATE=$(date '+%y%m%d-%H%M')
   git pull 2>&1
   git add . 2>&1
@@ -121,40 +121,42 @@ function pushit() {
   git push 2>&1
 }
 
-# Open the current directory in Atom
-function at() {
-    if [ $# -eq 0 ]; then
-        atom .;
-    else
-        atom "$@";
-    fi;
+# Just a bold yellow arrow
+arrow() {
+  echo "${yellow}${bold}>>> ${reset}$*"
 }
 
-function CP() {
-    mkdir -p $(dirname "$2") && cp "$1" "$2"
+# Open the current directory in Atom
+at() {
+  if [ $# -eq 0 ]; then
+      atom .;
+  else
+      atom "$@";
+  fi;
+}
+
+CP() {
+  mkdir -p $(dirname "$2") && cp "$1" "$2"
 }
 
 # tre :: `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-function tre() {
-    tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+tre() {
+  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 # Determine size of a file or total size of a directory
-function fs() {
-    if du -b /dev/null > /dev/null 2>&1; then
-        local arg=-sbh;
-    else
-        local arg=-sh;
-    fi
-    if [[ -n "$@" ]]; then
-        du $arg -- "$@";
-    else
-        du $arg .[^.]* *;
-    fi;
+fs() {
+  if du -b /dev/null > /dev/null 2>&1; then
+      local arg=-sbh;
+  else
+      local arg=-sh;
+  fi
+  if [[ -n "$@" ]]; then
+      du $arg -- "$@";
+  else
+      du $arg .[^.]* *;
+  fi;
 }
-
-#___END FUNCTIONS______________________________________________________________#
-#______________________________________________________________________________#
