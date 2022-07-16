@@ -114,6 +114,15 @@ alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 
 
+# Open the current directory in Atom
+at() {
+  if [ $# -eq 0 ]; then
+      atom .;
+  else
+      atom "$@";
+  fi;
+}
+
 # tre :: `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
