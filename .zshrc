@@ -113,6 +113,10 @@ alias path='echo -e ${PATH//:/\\n}'
 alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias sed="gsed"
+#Create a Github remote repo from cd
+alias gitready="git init -b main"
+alias gitset='git add . && git commit -m "initial commit"'
+alias gitgo="gh repo create"
 
 # Open the current directory in Atom
 at() {
