@@ -112,7 +112,7 @@ alias mount="mount | column -t"
 alias path='echo -e ${PATH//:/\\n}'
 alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
-
+alias sed="gsed"
 
 # Open the current directory in Atom
 at() {
@@ -145,6 +145,8 @@ fs() {
   fi;
 }
 
+# Add Homebrew's sbin to $PATH
+export PATH="/opt/homebrew/sbin:$PATH"
+
 # Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
-export PATH="/opt/homebrew/sbin:$PATH"
