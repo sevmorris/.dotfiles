@@ -118,6 +118,15 @@ alias gitready="git init -b main"
 alias gitset='git add . && git commit -m "initial commit"'
 alias gitgo="gh repo create"
 
+# Push current directory to Github
+pushit() {
+  DATE=$(date '+%y%m%d-%H%M')
+  git pull 2>&1
+  git add . 2>&1
+  git commit -m "${DATE}" 2>&1
+  git push 2>&1
+}
+
 # Open the current directory in Atom
 at() {
   if [ $# -eq 0 ]; then
