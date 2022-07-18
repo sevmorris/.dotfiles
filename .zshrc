@@ -109,6 +109,7 @@ alias brun="brew uninstall -v "
 alias find="fd "
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias mount="mount | column -t"
+alias netq="networkQuality -v"
 alias path='echo -e ${PATH//:/\\n}'
 alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
