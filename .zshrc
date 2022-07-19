@@ -104,12 +104,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias c="clear && source ~/.zshrc"
 alias cat="rich "
-alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
-alias brun="brew uninstall -v "
 alias find="fd "
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias mount="mount | column -t"
-alias netq="networkQuality -v"
+alias netcheck="networkQuality -v"
 alias path='echo -e ${PATH//:/\\n}'
 alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
@@ -118,6 +116,10 @@ alias sed="gsed"
 alias gitready="git init -b main"
 alias gitset='git add . && git commit -m "initial commit"'
 alias gitgo="gh repo create"
+# Homebrew aliases
+alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
+alias brun="brew uninstall -v "
+alias brewfile="cd ~/.homebrew-brewfile && pushit && ~"
 
 # Push current directory to Github
 pushit() {
