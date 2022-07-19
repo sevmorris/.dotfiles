@@ -100,8 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#___BEGIN SEV'S ALIASES________________________________________________________#
-
 alias c="clear && source ~/.zshrc"
 alias cat="rich "
 alias find="fd "
